@@ -1,38 +1,43 @@
-.App {
+.SiteWrapper{
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 25px;
+}
+.CountryNav{
+  display: flex;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.CountryNav a{
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+  padding: 5px 10px;
+  transition: border-bottom 200ms ease;
+}
+.CountryNav a:hover{
+  border-bottom: 1px solid black;
+}
+.CountryNav .active{
+  color: blue;
+}
+.CountryImage img{
+  padding-top: 25px;
+  padding-bottom: 10px;
+  max-width: 780px;
+  flex-basis: 50%;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Home{
+  max-width: 800px;
+  margin: 0 auto;
+  text-transform: capitalize;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Home h2{
+  text-align:center;
 }

@@ -7,6 +7,7 @@
 .CountryNav{
   display: flex;
   text-align: center;
+  align-items: center;
 }
 
 .CountryNav a{
@@ -21,9 +22,7 @@
 .CountryNav a:hover{
   border-bottom: 1px solid black;
 }
-.CountryNav .active{
-  color: blue;
-}
+
 .CountryImage img{
   padding-top: 25px;
   padding-bottom: 10px;
@@ -52,4 +51,11 @@
 }
 .CountryInfo_Description{
   flex-basis: 60%;
+}
+
+.Header{
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+
 }

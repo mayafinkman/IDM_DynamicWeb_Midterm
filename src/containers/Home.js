@@ -92,8 +92,13 @@ useEffect(() => {
                 <div className="CountryInfo_Data">
                     <h6>Country Info</h6>
                     <p>Capital: {capital}</p>
-                    <p>Population: {population} {demonym}'<lowercase>s</lowercase></p>
+                    <p>Population: {population} {demonym}'s</p>
                 </div>
+                <div className="CountryInfo_Description">
+                    <p>Placement text</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec lobortis ligula. In molestie turpis sit amet rutrum congue. Quisque ac finibus leo. Donec ac quam interdum, efficitur enim ut, tristique nulla. Integer vehicula viverra ex, nec euismod tortor feugiat quis. Nunc sodales dignissim ipsum et pretium. Donec a vestibulum purus. Suspendisse faucibus consectetur metus at fringilla. Nam auctor, metus ut ultrices commodo, est mi tincidunt mauris, ut laoreet massa lectus quis lacus. Proin convallis faucibus dui, vitae convallis nunc. Nulla pulvinar blandit enim ac mattis.</p>
+                    <p>Nunc egestas nibh a nulla egestas, ut congue diam eleifend. Mauris ac risus tellus. Maecenas a feugiat est, id bibendum turpis. Sed tellus urna, viverra sit amet velit eu, ullamcorper tempus enim. Vivamus bibendum semper nulla id congue. Fusce et urna ac dolor vulputate rutrum et non sapien. Vivamus vehicula iaculis turpis eu ultrices. Mauris in elit commodo, ullamcorper est et, condimentum lacus. Praesent ultrices velit eu euismod mattis. Nulla facilisi. Vivamus in nisl cursus, lobortis justo ut, interdum elit. Nulla feugiat risus sapien, eget porttitor tortor pellentesque ullamcorper.</p>
+                    </div>
             </div>
         </div>
 

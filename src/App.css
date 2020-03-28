@@ -41,3 +41,15 @@
 .Home h2{
   text-align:center;
 }
+
+.CountryInfo{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.CountryInfo_Data{
+  flex-basis: 40%;
+}
+.CountryInfo_Description{
+  flex-basis: 60%;
+}

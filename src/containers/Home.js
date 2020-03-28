@@ -16,6 +16,7 @@ function Home() {
     const [countryData, setCountryData] = useState({});
     const [country, setCountry] = useState("");
     const [capital, setCapital] = useState("");
+    const [demonym, setDemonym] = useState("");
     const [population, setPopulation] = useState("");
     const [currencyName, setCurrencyName] = useState("");
 
@@ -51,10 +52,11 @@ function Home() {
     useEffect(() => { 
         if(countryData.data)
         {
-           // console.log(countryData.data);
+            console.log(countryData.data);
             setCapital(countryData.data[0].capital);
             setPopulation(countryData.data[0].population);
             setCurrencyName(countryData.data[0].currencies);
+            setDemonym(countryData.data[0].demonym);
             //console.log(currencyName);
         }
 
@@ -72,7 +74,7 @@ useEffect(() => {
 useEffect(() => {
     if (currencyData.data)
         {
-            setCurrencyExchange(currencyData.data.quotes.USDNOK);
+           // setCurrencyExchange(currencyData.data.quotes.USDNOK);
             //console.log(currencyData);
        //console.log("currency exchange is " + currencyExchange);
         }
@@ -86,8 +88,12 @@ useEffect(() => {
             <div className="CountryImage">
                 <HeaderImage country={country} /> 
             </div>
-            <div className="CountryData">
-
+            <div className="CountryInfo">
+                <div className="CountryInfo_Data">
+                    <h6>Country Info</h6>
+                    <p>Capital: {capital}</p>
+                    <p>Population: {population} {demonym}'<lowercase>s</lowercase></p>
+                </div>
             </div>
         </div>
 

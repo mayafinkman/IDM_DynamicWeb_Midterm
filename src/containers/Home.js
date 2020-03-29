@@ -93,6 +93,7 @@ useEffect(() => {
                     <h6>Country Info</h6>
                     <p>Capital: {capital}</p>
                     <p>Population: {population} {demonym}'s</p>
+                    <p>Currency Exchange: 1 USD to {currencyExchange} {currencyName}</p>
                 </div>
                 <div className="CountryInfo_Description">
                     <p>Placement text</p>

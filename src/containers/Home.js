@@ -25,15 +25,15 @@ function Home() {
     useEffect(() => {
         let searchParams = history.location.search;
         let urlParams = new URLSearchParams(searchParams);
-        let country = urlParams.get('country');
-        if (country) {
-            setCountry(country);
+        let countryValue = urlParams.get('country');
+        if (countryValue) {
+            setCountry(countryValue);
         }
     }, [history]);
     useEffect(() => {
         axios({
             'method': 'GET',
-            'url': 'https://restcountries-v1.p.rapidapi.com/name/norway',
+            'url': `https://restcountries-v1.p.rapidapi.com/name/${country}`,
             "headers": {
             "content-type":"application/octet-stream",
             "x-rapidapi-host":"restcountries-v1.p.rapidapi.com",
@@ -92,7 +92,7 @@ useEffect(() => {
                 <div className="CountryInfo_Data">
                     <h6>Country Info</h6>
                     <p>Capital: {capital}</p>
-                    <p>Population: {population} {demonym}'s</p>
+                    <p>Population: {population.toLocaleString()} {demonym} people</p>
                     <p>Currency Exchange: 1 USD to {currencyExchange} {currencyName}</p>
                 </div>
                 <div className="CountryInfo_Description">

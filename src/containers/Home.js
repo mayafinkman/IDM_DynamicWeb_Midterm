@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import HeaderImage from "../components/HeaderImage";
+import InfoText from "../components/InfoText";
+import WelcomeIcon from "../components/WelcomeIcon";
 
 import { useHistory } from "react-router-dom";
 
@@ -19,6 +21,10 @@ function Home() {
     const [demonym, setDemonym] = useState("");
     const [population, setPopulation] = useState("");
     const [currencyName, setCurrencyName] = useState("");
+    const [currencyConcat, setCurrencyConcat] = useState("");
+    const [location, setLocation] = useState("");
+    const [nativeName, setNativeName] = useState("");
+    const [language, setLanguage] = useState("");
 
     let history = useHistory();
 
@@ -42,7 +48,7 @@ function Home() {
             })
             .then(function(response){
                 setCountryData(response);
-                console.log(country);
+                //console.log(country);
             })
             .catch(function(error) {
                 console.log(error);
@@ -52,12 +58,15 @@ function Home() {
     useEffect(() => { 
         if(countryData.data)
         {
-            console.log(countryData.data);
+           console.log(countryData.data);
             setCapital(countryData.data[0].capital);
             setPopulation(countryData.data[0].population);
-            setCurrencyName(countryData.data[0].currencies);
+            setCurrencyName(countryData.data[0].currencies[0]);
+            setCurrencyConcat("USD" + String(countryData.data[0].currencies[0]))
             setDemonym(countryData.data[0].demonym);
-            //console.log(currencyName);
+            setLocation(countryData.data[0].subregion);
+            setNativeName(countryData.data[0].nativeName);
+            
         }
 
     }, [countryData]);
@@ -74,9 +83,11 @@ useEffect(() => {
 useEffect(() => {
     if (currencyData.data)
         {
-           // setCurrencyExchange(currencyData.data.quotes.USDNOK);
-            //console.log(currencyData);
-       //console.log("currency exchange is " + currencyExchange);
+        setCurrencyExchange(String(currencyData.data.quotes[currencyConcat]));
+        //console.log(currencyData);
+        // console.log(currencyName);
+        // console.log(currencyConcat);
+        //console.log("currency exchange is " + currencyExchange);
         }
 
     }, [currencyData]);
@@ -84,22 +95,25 @@ useEffect(() => {
 
     return (
         <div className="Home">
-            <h2>Welcome to {country}</h2>
+            <div className="CountryWelcome">
+                <h2>Welcome to {country}!</h2>
+                <WelcomeIcon country={country} />
+            </div>
             <div className="CountryImage">
                 <HeaderImage country={country} /> 
             </div>
             <div className="CountryInfo">
                 <div className="CountryInfo_Data">
-                    <h6>Country Info</h6>
+                    <h3>Country Info</h3>
+                    <p>{nativeName} to natives</p>
                     <p>Capital: {capital}</p>
                     <p>Population: {population.toLocaleString()} {demonym} people</p>
                     <p>Currency Exchange: 1 USD to {currencyExchange} {currencyName}</p>
+                    <p>Located in {location}</p>
                 </div>
                 <div className="CountryInfo_Description">
-                    <p>Placement text</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec lobortis ligula. In molestie turpis sit amet rutrum congue. Quisque ac finibus leo. Donec ac quam interdum, efficitur enim ut, tristique nulla. Integer vehicula viverra ex, nec euismod tortor feugiat quis. Nunc sodales dignissim ipsum et pretium. Donec a vestibulum purus. Suspendisse faucibus consectetur metus at fringilla. Nam auctor, metus ut ultrices commodo, est mi tincidunt mauris, ut laoreet massa lectus quis lacus. Proin convallis faucibus dui, vitae convallis nunc. Nulla pulvinar blandit enim ac mattis.</p>
-                    <p>Nunc egestas nibh a nulla egestas, ut congue diam eleifend. Mauris ac risus tellus. Maecenas a feugiat est, id bibendum turpis. Sed tellus urna, viverra sit amet velit eu, ullamcorper tempus enim. Vivamus bibendum semper nulla id congue. Fusce et urna ac dolor vulputate rutrum et non sapien. Vivamus vehicula iaculis turpis eu ultrices. Mauris in elit commodo, ullamcorper est et, condimentum lacus. Praesent ultrices velit eu euismod mattis. Nulla facilisi. Vivamus in nisl cursus, lobortis justo ut, interdum elit. Nulla feugiat risus sapien, eget porttitor tortor pellentesque ullamcorper.</p>
-                    </div>
+                    <InfoText country={country}/>
+                </div>
             </div>
         </div>
 

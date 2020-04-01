@@ -3,10 +3,11 @@
   margin: 0 auto;
   width: 100%;
   padding: 0 25px;
+  font-family: "Times New Roman", Times, sans-serif;
 }
 .CountryNav{
   display: flex;
-  align-items: center;
+  justify-content: left;
 }
 
 .CountryNav a{
@@ -33,11 +34,11 @@
 .Home{
   max-width: 800px;
   margin: 0 auto;
-  text-transform: capitalize;
 }
 
 .Home h2{
   text-align:center;
+  text-transform: capitalize;
 }
 
 .CountryInfo{
@@ -53,8 +54,30 @@
 }
 
 .Header{
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  /*text-align: center;*/
   justify-content: space-between;
 
+}
+
+.WebTitle{
+  display: flex;
+}
+.TitleIcon{
+  flex-basis: 50%;
+  text-align: left;
+  font-size: 25px;
+  padding-top: 30px;
+  padding-left: 15px;
+  color:#2383EB;
+}
+
+.CountryWelcome{
+  align-items: center;
+  justify-content: center;
+}
+.WelcomeIcon{
+  flex-basis: 50%;
+  text-align: center;
+  font-size: 30px;
 }
